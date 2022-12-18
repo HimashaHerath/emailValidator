@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Email Validator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Email Validator</h1>
+    <input type="text" id="email-input">
+    <button id="submit-button">Validate Email</button>
+    <div id="result"></div>
+
+    <script>
+      // Add event listener for button click
+      document.getElementById('submit-button').addEventListener('click', function() {
+        // Get email from input field
+        var email = document.getElementById('email-input').value;
+
+        // Send request to Email Validation API
+        var apiKey = "";// ADD YOUR API KEY
+        var apiUrl = "https://emailvalidation.abstractapi.com/v1/";
+        var url = apiUrl + "?api_key=" + apiKey + "&email=" + email;
+
+        // Send GET request to API
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            // Parse response to get email validation result
+            var response = JSON.parse(xhr.responseText);
+            if (response.is_valid_format.value === true) {
+              document.getElementById('result').innerHTML = email + " is a valid email address";
+            } else {
+              document.getElementById('result').innerHTML = email + " is NOT a valid email address";
+            }
+          }
+        };
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    font-size: 16px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    width: 300px;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 12px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #result {
+    font-size: 18px;
+    margin-top: 16px;
+    color: #333;
+  }
+  
